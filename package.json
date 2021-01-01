@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ALMaclaine/media-query-manager"
   },
   "files": [
     "dist"
@@ -30,10 +30,12 @@
   "author": "Alessandro MacLaine",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/ALMaclaine/media-query-manager/issues"
   },
-  "homepage": "",
-  "dependencies": {},
+  "homepage": "https://github.com/ALMaclaine/media-query-manager#readme",
+  "dependencies": {
+    "empxrem": "0.0.2"
+  },
   "devDependencies": {
     "@almaclaine/rollup-config": "^0.0.2",
     "@almaclaine/ts-config": "^0.0.1",
