@@ -1,7 +1,5 @@
 import { ensureNotPxEm } from 'empxrem';
 
-import  {BreakpointDims} from './types';
-
 export class MediaQueryManager extends EventTarget {
   private _watchers: Array<MediaQueryList> = [];
   private _breaks: Array<number> = [];
@@ -34,10 +32,11 @@ export class MediaQueryManager extends EventTarget {
   }
 
   private _changed() {
-    this.dispatchEvent(new Event('change'));
+    const event = new CustomEvent<{active: number}>('change', {detail: {active: this.active}});
+    this.dispatchEvent(event);
   }
 
-  public _destroy = () => this._watchers.forEach(e => e.removeEventListener('change', this._handler));
+  public destroy = () => this._watchers.forEach(e => e.removeEventListener('change', this._handler));
 
   get breaks(): number[] {
     return this._breaks
