@@ -1,6 +1,6 @@
 {
   "name": "media-query-manager",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Used to manage media query break points and listen for changes.",
   "main": "dist/index.bundle.js",
   "module": "dist/index.js",
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/ALMaclaine/media-query-manager#readme",
   "dependencies": {
-    "empxrem": "0.0.2"
+    "empxrem": "0.0.3"
   },
   "devDependencies": {
     "@almaclaine/rollup-config": "^0.0.2",
