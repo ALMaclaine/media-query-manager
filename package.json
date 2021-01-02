@@ -1,6 +1,6 @@
 {
   "name": "media-query-manager",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Used to manage media query break points and listen for changes.",
   "main": "dist/index.bundle.js",
   "module": "dist/index.js",

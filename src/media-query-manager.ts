@@ -39,7 +39,7 @@ export class MediaQueryManager extends EventTarget {
   public destroy = () => this._watchers.forEach(e => e.removeEventListener('change', this._handler));
 
   get breaks(): number[] {
-    return this._breaks
+    return this._breaks.sort();
   }
 
   get active(): number {
