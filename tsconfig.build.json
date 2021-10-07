@@ -13,9 +13,8 @@
   "compilerOptions": {
     "lib": [
       "dom",
-      "es5",
+      "esnext",
       "scripthost",
-      "es2015.collection"
     ]
   }
 }

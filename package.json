@@ -8,6 +8,7 @@
   "scripts": {
     "test": "npx jest",
     "clean": "rm -rd dist",
+    "lint": "npx eslint . --fix",
     "rollup": "rollup -c ./rollup.config.js",
     "build": "npm run test && npm run clean && npm run compile && npm run rollup",
     "compile": "tsc --outDir dist --project tsconfig.build.json",
@@ -34,17 +35,14 @@
   },
   "homepage": "https://github.com/ALMaclaine/media-query-manager#readme",
   "dependencies": {
-    "empxrem": "0.0.3"
+    "empxrem": "0.0.4"
   },
   "devDependencies": {
-    "@almaclaine/rollup-config": "^0.0.2",
-    "@almaclaine/ts-config": "^0.0.1",
-    "@types/node": "^14.14.9",
-    "esm": "^3.2.25",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.1.2",
-    "@types/jest": "^26.0.15",
-    "jest": "^26.6.3",
-    "ts-jest": "^26.4.4"
+    "@almaclaine/eslint-config": "^0.0.1",
+    "@almaclaine/rollup-config": "^0.0.11",
+    "@almaclaine/ts-config": "^0.2.4",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.2.4",
+    "ts-jest": "^27.0.5"
   }
 }
