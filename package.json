@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@almaclaine/eslint-config": "^0.0.1",
-    "@almaclaine/rollup-config": "^0.0.11",
-    "@almaclaine/ts-config": "^0.2.4",
+    "@almaclaine/rollup-config": "^0.0.13",
+    "@almaclaine/ts-config": "^0.2.5",
     "@types/jest": "^27.0.2",
     "jest": "^27.2.4",
     "ts-jest": "^27.0.5"
