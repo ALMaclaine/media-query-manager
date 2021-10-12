@@ -16,10 +16,7 @@ export class MediaQueryManager extends EventTarget {
       this._changed();
   }
 
-  constructor(breaks: Array<number>, baseFontSize = 16) {
-      super();
-
-      this._finalBreaks = [...breaks, 99999];
+  public init(baseFontSize: number) {
       for (const pt of this._finalBreaks) {
           const dim = ensureNotPxEm(pt, baseFontSize);
           const query = `(max-width: ${dim})`;
@@ -29,6 +26,15 @@ export class MediaQueryManager extends EventTarget {
           this._breaks.push(pt);
       }
       this._handler();
+  }
+
+  constructor(breaks: Array<number>, { baseFontSize = 16, delayInit = false }) {
+      super();
+
+      this._finalBreaks = [...breaks, 99999];
+      if (!delayInit) {
+          this.init(baseFontSize);
+      }
   }
 
   private _changed() {
