@@ -4,9 +4,11 @@ export class MediaQueryManager extends EventTarget {
   private _watchers: Array<MediaQueryList> = [];
   private _breaks: Array<number> = [];
   private _active = 0;
-  private readonly _finalBreaks: number[] = [];
+  protected readonly _finalBreaks: number[] = [];
+  protected readonly _baseFontSize;
 
-  private _handler = () => {
+
+    private _handler = () => {
       for (let i = 0; i < this._watchers.length; i++) {
           if (this._watchers[i].matches) {
               this._active = this._breaks[i];
@@ -30,7 +32,7 @@ export class MediaQueryManager extends EventTarget {
 
   constructor(breaks: Array<number>, { baseFontSize = 16, delayInit = false } = {}) {
       super();
-
+      this._baseFontSize = baseFontSize;
       this._finalBreaks = [...breaks, 99999];
       if (!delayInit) {
           this.init(baseFontSize);
