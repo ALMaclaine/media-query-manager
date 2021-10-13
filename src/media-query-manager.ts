@@ -28,7 +28,7 @@ export class MediaQueryManager extends EventTarget {
       this._handler();
   }
 
-  constructor(breaks: Array<number>, { baseFontSize = 16, delayInit = false }) {
+  constructor(breaks: Array<number>, { baseFontSize = 16, delayInit = false } = {}) {
       super();
 
       this._finalBreaks = [...breaks, 99999];
