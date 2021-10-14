@@ -2,9 +2,8 @@ import { ensureNotPxEm } from 'empxrem';
 
 export class MediaQueryManager extends EventTarget {
   private _watchers: Array<MediaQueryList> = [];
-  private _breaks: Array<number> = [];
   private _active = 0;
-  protected readonly _finalBreaks: number[] = [];
+  protected readonly _breaks: Array<number> = [];
   protected readonly _baseFontSize;
 
 
@@ -19,13 +18,12 @@ export class MediaQueryManager extends EventTarget {
     }
 
     public init(baseFontSize: number): void {
-        for (const pt of this._finalBreaks) {
+        for (const pt of this._breaks) {
             const dim = ensureNotPxEm(pt, baseFontSize);
             const query = `(max-width: ${dim})`;
             const watcher = window.matchMedia(query);
             watcher.addEventListener('change', this._handler);
             this._watchers.push(watcher);
-            this._breaks.push(pt);
         }
         this._handler();
     }
@@ -33,7 +31,8 @@ export class MediaQueryManager extends EventTarget {
     constructor(breaks: Array<number>, { baseFontSize = 16, delayInit = false } = {}) {
         super();
         this._baseFontSize = baseFontSize;
-        this._finalBreaks = [...breaks, 99999];
+        this._breaks = [...breaks, 99999];
+
         if (!delayInit) {
             this.init(baseFontSize);
         }
@@ -55,8 +54,8 @@ export class MediaQueryManager extends EventTarget {
         this._watchers.forEach(e => e.removeEventListener('change', this._handler));
     }
 
-    get breaks(): number[] {
-        return this._breaks.sort((a, b) => a - b);
+    get breaks(): Array<number> {
+        return this._breaks;
     }
 
     get active(): number {
