@@ -17,9 +17,9 @@ export class MediaQueryManager extends EventTarget {
         this._changed();
     }
 
-    public init(baseFontSize: number): void {
+    public init(): void {
         for (const pt of this._breaks) {
-            const dim = ensureNotPxEm(pt, baseFontSize);
+            const dim = ensureNotPxEm(pt, this._baseFontSize);
             const query = `(max-width: ${dim})`;
             const watcher = window.matchMedia(query);
             watcher.addEventListener('change', this._handler);
@@ -34,7 +34,7 @@ export class MediaQueryManager extends EventTarget {
         this._breaks = [...breaks, 99999];
 
         if (!delayInit) {
-            this.init(baseFontSize);
+            this.init();
         }
     }
 
