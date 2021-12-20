@@ -1,6 +1,6 @@
 {
   "name": "media-query-manager",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Used to manage media query break points and listen for changes.",
   "main": "dist/index.bundle.js",
   "module": "dist/index.js",
@@ -36,13 +36,13 @@
   },
   "homepage": "https://github.com/ALMaclaine/media-query-manager#readme",
   "dependencies": {
-    "empxrem": "0.0.9"
+    "empxrem": "0.0.12"
   },
   "devDependencies": {
-    "@almaclaine/eslint-config": "^0.0.17",
+    "@almaclaine/eslint-config": "^0.0.18",
     "@almaclaine/jest-config": "^0.0.1",
-    "@almaclaine/npm-scripts": "^0.0.13",
+    "@almaclaine/npm-scripts": "^0.0.15",
     "@almaclaine/rollup-config": "^0.0.14",
-    "@almaclaine/ts-config": "^0.2.7"
+    "@almaclaine/ts-config": "^0.2.10"
   }
 }
