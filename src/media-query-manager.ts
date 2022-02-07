@@ -1,21 +1,21 @@
 import { ensureNotPxEm } from 'empxrem';
 
 export class MediaQueryManager extends EventTarget {
-  private _watchers: Array<MediaQueryList> = [];
-  private _active = 0;
-  protected readonly _breaks: Array<number> = [];
-  protected readonly _baseFontSize;
+    private _watchers: Array<MediaQueryList> = [];
+    private _active = 0;
+    protected readonly _breaks: Array<number> = [];
+    protected readonly _baseFontSize;
 
 
     private _handler = () => {
-        for (let i = 0; i < this._watchers.length; i++) {
-            if (this._watchers[i].matches) {
-                this._active = this._breaks[i];
+        for (const [i, watcher] of Object.entries(this._watchers)) {
+            if (watcher.matches) {
+                ({ _breaks: { [parseInt(i)]: this._active } } = this);
                 break;
             }
         }
         this._changed();
-    }
+    };
 
     public init(): void {
         for (const pt of this._breaks) {
